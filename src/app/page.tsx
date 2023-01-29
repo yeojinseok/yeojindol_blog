@@ -1,17 +1,12 @@
-
-import Head from 'next/head'
 import { getSortedPostsData } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import Date from './components/Data'
-import RootLayout, { siteTitle } from './layout'
 import styles from '../styles/layout.module.css'
 import Image from 'next/image'
 
-export async function getData() {
+async function getData() {
   const allPostsData = getSortedPostsData()
-
-  console.log(allPostsData, '나와라얍')
 
   return allPostsData
 }
@@ -19,8 +14,6 @@ export async function getData() {
 export default async function Home() {
 
   const allPostsData = await getData()
-
-  console.log(allPostsData, 'jinijijij')
 
   return (
 
