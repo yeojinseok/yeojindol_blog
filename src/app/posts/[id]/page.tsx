@@ -2,7 +2,7 @@ import { getAllPostIds, getPostData } from '@/lib/posts'
 import Date from '../../components/Data'
 import utilStyles from '../../../styles/utils.module.css'
 
-export async function getStaticPaths() {
+async function getStaticPaths() {
   const paths = getAllPostIds()
   return {
     paths,
@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getData(id: string) {
+async function getData(id: string) {
   // Add the "await" keyword like this:
   const postData = await getPostData(id)
 
