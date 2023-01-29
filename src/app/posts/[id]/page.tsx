@@ -1,5 +1,5 @@
+import Date from '@/components/Data'
 import { getAllPostIds, getPostData } from '@/lib/posts'
-import Date from '../../components/Data'
 import utilStyles from '../../../styles/utils.module.css'
 
 async function getStaticPaths() {
@@ -11,7 +11,6 @@ async function getStaticPaths() {
 }
 
 async function getData(id: string) {
-  // Add the "await" keyword like this:
   const postData = await getPostData(id)
 
   return postData

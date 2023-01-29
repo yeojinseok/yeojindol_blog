@@ -6,7 +6,11 @@ import html from 'remark-html'
 
 const postsDirectory = path.join(process.cwd(), '/src/posts')
 
-export function getSortedPostsData() {
+export function getSortedPostsData():{
+  id:string;
+  date?:string;
+  title?:string;
+}[] {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map((fileName) => {
@@ -89,15 +93,15 @@ export async function getPostData(id: string):Promise<{
   }
 }
 
-export async function createPost({ id, title, date, content }) {
-  const fullPath = path.join(postsDirectory, `${id}.md`)
+// export async function createPost({ id, title, date, content }) {
+//   const fullPath = path.join(postsDirectory, `${id}.md`)
 
-  const data = `---
-  title: '${title}'
-  date: '${date}'
----
-  ${content}
-  `
+//   const data = `---
+//   title: '${title}'
+//   date: '${date}'
+// ---
+//   ${content}
+//   `
 
-  fs.writeFileSync(fullPath, data)
-}
+//   fs.writeFileSync(fullPath, data)
+// }
